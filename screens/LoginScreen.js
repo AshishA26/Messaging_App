@@ -1,18 +1,32 @@
 // imports
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 import { KeyboardAvoidingView } from "react-native-web";
+import { auth } from "../firebase";
 
 // LoginScreen component
 const LoginScreen = ({ navigation }) => {
-  
+  //navigation is a destructured variable
+
   // Map the entered info into states - states is just Reacts way of saying variables
   // Essentially, it is saying use the setEmail function to set the variable "email"
   // use the setPassword function to set the variable "password"
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  //When the auth state has changed, replace the current screen with the home page
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      // If the user has been authenticated
+      if (authUser) {
+        navigation.replace("Home");
+      }
+    });
+
+    return unsubscribe; // To increase performance
+  }, []);
 
   // signIn function, is called when user presses Login
   const signIn = () => {};
@@ -27,7 +41,7 @@ const LoginScreen = ({ navigation }) => {
         }}
         style={{ width: 200, height: 200 }}
       />
-      <View style={styles.inputContainer}> 
+      <View style={styles.inputContainer}>
         <Input // Email input box. Note: the style above says to use the styles setting under InputContainer, at the bottom of this code
           placeholder="Email" //Placeholder text in the input box
           autoFocus //When you open the app, it focuses on this input box, meaning it will auto select it
@@ -46,13 +60,13 @@ const LoginScreen = ({ navigation }) => {
 
       <Button // Login button
         containerStyle={styles.button} //Use the button style from the bottom of the code
-        onPress={signIn}
-        title="Login"
+        onPress={signIn} //When button is pressed, call the signIn function
+        title="Login" // Name of button
       />
       <Button // Register button
         onPress={() => navigation.navigate("Register")} // navigation.navigate("") is how you navigate through screens in react. "Register" is the name we set in App.js
         containerStyle={styles.button}
-        type="outline"
+        type="outline" // Style of button I think
         title="Register"
       />
       <View
