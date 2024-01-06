@@ -19,7 +19,7 @@ npm install react-native-elements
 
 Install ES7+ React/Redux/React-Native snippets from VS code extensions
 
-
+npx expo install firebase
 
 
 // Import the functions you need from the SDKs you need

@@ -10,7 +10,7 @@ import { auth } from "../firebase";
 const LoginScreen = ({ navigation }) => {
   //navigation is a destructured variable
 
-  // Map the entered info into states - states is just Reacts way of saying variables
+  // Map the entered info into states - states is just Reacts way of saying global variables
   // Essentially, it is saying use the setEmail function to set the variable "email"
   // use the setPassword function to set the variable "password"
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const LoginScreen = ({ navigation }) => {
   //When the auth state has changed, replace the current screen with the home page
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      // If the user has been authenticated
+      // If the user has been authenticated, replace the screen
       if (authUser) {
         navigation.replace("Home");
       }
@@ -29,7 +29,11 @@ const LoginScreen = ({ navigation }) => {
   }, []);
 
   // signIn function, is called when user presses Login
-  const signIn = () => {};
+  const signIn = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error));
+  };
 
   // keyboardAvoidingView is used to shift up content when keyboard on phone is opened
   return (
@@ -55,6 +59,7 @@ const LoginScreen = ({ navigation }) => {
           type="password"
           value={password}
           onChangeText={(text) => setPassword(text)}
+          onSubmitEditing={signIn}
         />
       </View>
 

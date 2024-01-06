@@ -5,12 +5,12 @@ import 'firebase/compat/firestore';
 
 // config copied from firebase console
 const firebaseConfig = {
-  apiKey: "AIzaSyBZn43XzdhrG4QSSd8cmU15Ju-ZizHVlJ8",
-  authDomain: "messagingapp-6434c.firebaseapp.com",
-  projectId: "messagingapp-6434c",
-  storageBucket: "messagingapp-6434c.appspot.com",
-  messagingSenderId: "445760231394",
-  appId: "1:445760231394:web:639047552a345710740bbb",
+  apiKey: "AIzaSyDqkBcplyJSsAPIIdtZePgik3thyREjxjU",
+  authDomain: "messagingapp2-6537d.firebaseapp.com",
+  projectId: "messagingapp2-6537d",
+  storageBucket: "messagingapp2-6537d.appspot.com",
+  messagingSenderId: "509309590958",
+  appId: "1:509309590958:web:14d226a1c60b27e2e57c3f"
 };
 
 let app;
