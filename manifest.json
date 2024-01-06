@@ -1,0 +1,9 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Messaging_App",
+  "short_name": "Messaging_App",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait"
+}
