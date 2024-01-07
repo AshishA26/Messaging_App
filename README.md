@@ -1,7 +1,6 @@
 # Messaging_App
 A messaging app that uses React Native, Expo, and Firebase Authentication and Database.
 
-
 ## Setup
 Do ```npm install``` and ```npm start```, or look at the commands I ran:
 ```
