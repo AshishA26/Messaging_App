@@ -1,5 +1,5 @@
 # Messaging_App
-A messaging app that uses React Native, Expo, and Firebase Authentication and Database.
+A messaging app that uses React Native, Expo, and Firebase Authentication and Database. It is hosted on github pages at [ashisha26.github.io/Messaging_App/](ashisha26.github.io/Messaging_App/). 
 
 Apk is available [here](https://expo.dev/artifacts/eas/2uEZAfpt1Y56tmVyGacosw.apk) or in the releases page of this repo.
 
