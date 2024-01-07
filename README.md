@@ -2,7 +2,7 @@
 A messaging app that uses React Native, Expo, and Firebase Authentication and Database.
 
 ## Setup
-Do ```npm install``` and ```npm start```, or look at the commands I ran:
+Do ```npm install``` and ```npm start``` and look at the commands I ran if wanted:
 ```
 npm install firebase
 npm install -g firebase-tools
@@ -16,6 +16,12 @@ npx expo install firebase
 npm install --global yarn
 yarn add -D gh-pages
 yarn deploy
+npm install --global eas-cli
+eas login
+npx expo install expo-updates
+eas update:configure
+eas build:configure
+eas build -p android --profile preview
 ```
 Do ```yarn deploy``` whenever you change the code.
 
@@ -61,3 +67,4 @@ npx serve dist
 - https://docs.expo.dev/eas-update/build-locally/
 - https://docs.expo.dev/build-reference/apk/
 - https://dev.to/chinmaymhatre/how-to-generate-apk-using-react-native-expo-kae
+- https://docs.expo.dev/eas-update/getting-started/
