@@ -5,5 +5,13 @@
   "name": "Messaging_App",
   "short_name": "Messaging_App",
   "start_url": "/?utm_source=web_app_manifest",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.shinyflame.Messaging_App",
+      "id": "com.shinyflame.Messaging_App"
+    }
+  ],
+  "prefer_related_applications": true
 }
