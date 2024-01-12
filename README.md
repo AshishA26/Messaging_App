@@ -3,6 +3,10 @@ A messaging app that uses React Native, Expo, and Firebase Authentication and Da
 
 Apk is available [here](https://expo.dev/artifacts/eas/2uEZAfpt1Y56tmVyGacosw.apk) or in the releases page of this repo.
 
+![Image1](./Images/Screenshot%202024-01-11%20at%2015-54-46%20Login.png)
+
+![Image2](./Images/2024-01-11_155752.png)
+
 ## Setup
 Do ```npm install``` and ```npm start``` and look at the commands I ran if wanted:
 ```
