@@ -7,10 +7,10 @@ import {
   View,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { SafeAreaView } from "react-native-web";
+import { SafeAreaView } from "react-native";
 import CustomListItem from "../components/CustomListItem";
 import { Avatar } from "react-native-elements";
-import { auth, db } from "../firebase";
+import { auth, db } from "../firebaseConfig";
 import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 
 // When navigation brings user to the home screen:

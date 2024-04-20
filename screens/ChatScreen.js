@@ -15,8 +15,8 @@ import React, { useLayoutEffect, useState } from "react";
 import { Avatar } from "react-native-elements";
 import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Platform } from "react-native";
-import { SafeAreaView } from "react-native-web";
-import { db, auth } from "../firebase";
+import { SafeAreaView } from "react-native";
+import { db, auth } from "../firebaseConfig";
 import firebase from "firebase/compat/app";
 
 const ChatScreen = ({ navigation, route }) => {

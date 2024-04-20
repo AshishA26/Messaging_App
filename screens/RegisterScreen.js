@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { KeyboardAvoidingView } from "react-native-web";
+import { KeyboardAvoidingView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button, Input, Text } from "react-native-elements";
-import { auth } from "../firebase";
+import { auth } from "../firebaseConfig";
 
 // Instead of importing Text from react-native, we import it from react-native-elements
 // to get the h3, h2, etc properties

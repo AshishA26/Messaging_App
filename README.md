@@ -7,70 +7,92 @@ Apk is available [here](https://expo.dev/artifacts/eas/2uEZAfpt1Y56tmVyGacosw.ap
 
 ![Image2](./Images/Image3.png)
 
-## Setup
-Do ```npm install``` and ```npm start``` and look at the commands I ran if wanted:
-```
-npm install firebase
-npm install -g firebase-tools
-npm install @react-navigation/native
-npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated @react-native/community/masked-view
-npm install @react-navigation/stack
-npm install @react-navigation/native-stack
+## Environment Setup
+
+- On Windows, use the Anaconda prompt. 
+- Useful VS Code extension: `ES7+ React/Redux/React-Native snippets`
+
+```bash
+conda create --name messaging_app 
+conda activate messaging_app
+conda install conda-forge::nodejs=20.9
 npm install
-npm install react-native-elements
-npx expo install firebase
-npm install --global yarn
-yarn add -D gh-pages
-yarn deploy
-npm install --global eas-cli
+npm install -g firebase-tools
+npm install -g eas-cli
+npm install -g @expo/ngrok@^4.1.0
+npm install -g yarn
 eas login
-npx expo install expo-updates
+firebase login
+yarn install # For Expo Android build
+```
+
+## Running
+- `npm start`: Start app using expo. Can then select Android or Web
+- `npm run android`: Directly start it on the Android emulator.
+- `npm run remote_android`: Run Expo app via public URL, for Android device on a different network
+
+## Deploying
+
+Building the app as a SPA is automatically handled when deploying through the `npm` scripts.
+
+### Deploying locally
+- `npm run deploy_local`
+
+### Deploying to Github Pages
+- Add the following to `app.json` inside the `"expo"` object.
+    ```json
+    "experiments": {
+      "baseUrl": "/Messaging_App"
+    },
+    ```
+- `npm deploy_github`
+
+### Deploying to Firebase hosting
+- `npm run deploy_firebase`
+
+
+### Building APK
+```bash
 eas update:configure
 eas build:configure
 eas build -p android --profile preview
 ```
-Do ```yarn deploy``` whenever you change the code.
-
-Install ```ES7+ React/Redux/React-Native snippets``` from VS code extensions to make your life a bit easier when coding in react.
 
 ## Notes
+
 ### Expo Go App
-In order for it to work on my phone on expo go, I had to disable the other networks on my computer so that WiFi was the 1st active one. Then I had to use hotspot from my phone to the computer, then do npm start. Then I scanned the bar code, waited for it to download, then retryed on my phone. Then it worked. Android emulator did not work for me.
+- Login into eas in cli, and on Android's Expo App.
+- In order for it to work on Android on expo go, you need to either have the laptop and phone on the same wifi network, or use tunnelling. Then scan the QR code.
+- `npm run remote_android` if Android and Laptop are not on the same network
 
-### Hosting on website
-I could not get it to host on Firebase. I instead hosted it on github pages. But this is what I tried:
+### Android Emulator
+- Run Android Emulator through Android Studio
+- Run `npm start`, then press `a`. 
+- may need `npx expo install --fix`
 
-Firebase login or any firebase command not working? Go to this [link](
-https://stackoverflow.com/questions/64149680/how-can-i-activate-a-conda-environment-from-powershell) or follow directions below 
+## Firebase Setup
 
-```
-Open PowerShell and browse to condabin folder in your Conda installation directory, for example: C:\Users\<username>\anaconda3\condabin
-
-Run ./conda init powershell in that folder, and reopen the PowerShell.
-
-Please note: If you encountered ps1 cannot be loaded because running scripts is disabled on this system, simply run the PowerShell as Administrator and enter the following: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-
-Restart the PowerShell and enjoy!
-```
-Now you can do:
-```
-firebase login
-firebase logout
+```bash
 firebase init
-firebase init hosting
-npx expo export:web
-npx serve dist
+# Select "Hosting" option, and use these settings:
+#? What do you want to use as your public directory? dist
+#? Configure as a single-page app (rewrite all urls to /index.html)? Yes
+#? Set up automatic builds and deploys with GitHub? No
 ```
+
+## Issues
+- icons don't work when hosted in firebase
 
 ## Links:
-- https://www.youtube.com/watch?v=MJzmZ9qmdaE
-- https://www.youtube.com/watch?v=VozPNrt-LfE
-- https://docs.expo.dev/distribution/publishing-websites/
-- https://loisthash.medium.com/getting-started-in-node-js-with-conda-cd543de24311
-- https://reactnative.dev/docs/environment-setup?package-manager=npm
-- https://www.youtube.com/watch?v=coW942jEnak
-- https://reactnavigation.org/docs/hello-react-navigation/
+- [Youtube: Build React-native app](https://www.youtube.com/watch?v=MJzmZ9qmdaE)
+- [Youtube: What is React Native?](https://www.youtube.com/watch?v=VozPNrt-LfE)
+- [React Navigation](https://reactnavigation.org/docs/hello-react-navigation/)
+- [Expo: Build APK](https://docs.expo.dev/build-reference/apk/)
 - https://docs.expo.dev/eas-update/build-locally/
-- https://docs.expo.dev/build-reference/apk/
 - https://dev.to/chinmaymhatre/how-to-generate-apk-using-react-native-expo-kae
 - https://docs.expo.dev/eas-update/getting-started/
+- [Expo app: Use tunnelling for public URL for Android](https://docs.expo.dev/more/expo-cli/#tunneling)
+- https://reactnative.dev/docs/environment-setup?guide=native&package-manager=npm
+    - Add `%LOCALAPPDATA%\Android\Sdk` as `ANDROID_HOME` environment variable
+    - Add `%LOCALAPPDATA%\Android\Sdk\platform-tools` to `PATH`
+- [How to publish to Firebase and Github Pages](https://docs.expo.dev/distribution/publishing-websites/)

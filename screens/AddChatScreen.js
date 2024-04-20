@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { Button, Input } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { db } from "../firebase";
+import { db } from "../firebaseConfig";
 
 const AddChatScreen = ({ navigation }) => {
   // Create a "input" variable that is set when setInput is called

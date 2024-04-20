@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ListItem, Avatar } from "react-native-elements";
-import { db } from "../firebase";
+import { db } from "../firebaseConfig";
 
 // This is basically one chat in the list
 const CustomListItem = ({ id, chatName, enterChat }) => {
